@@ -1,83 +1,22 @@
-# ATM Database
-data = {
-    '000001': {'name': 'Ashik', 'pin': '2211', 'balance': 50000},
-    '000002': {'name': 'Manu',  'pin': '6611', 'balance': 15000},
-    '000003': {'name': 'Ram',   'pin': '1002', 'balance': 25000},
-    '000004': {'name': 'Hari',  'pin': '0023', 'balance': 4500},
-    '000005': {'name': 'Rahul', 'pin': '2551', 'balance': 150000}
-}
-data = {
-    '000001': {'name': 'Ashik', 'pin': 2211, 'balance': 50000},
-    '000002': {'name': 'Manu',  'pin': 6611, 'balance': 15000},
-    '000003': {'name': 'Ram',   'pin': 1002, 'balance': 25000},
-    '000004': {'name': 'Hari',  'pin': 0023, 'balance': 4500},
-    '000005': {'name': 'Rahul', 'pin': 2551, 'balance': 150000}
+data={
+    '000001':{'Name':'Sam','Pin':1122,'Acc_amount':50600},
+    '000002':{'Name':'Alex','Pin':1044,'Acc_amount':15000},
+    '000003':{'Name':'Max','Pin':1023,'Acc_amount':25000},
+    '000004':{'Name':'Joe','Pin':1212,'Acc_amount':4500},
+    '000005':{'Name':'Anny','Pin':1412,'Acc_amount':1500000}
 }
 
-# ---------------- FUNCTIONS ----------------
+atm = 100000
 
-def login():
-    acc = input("Enter account number: ")
-    pin = int(input("Enter PIN: "))
+while True:
+    number = input("Enter your Account Number: ")
 
-    if acc in data and data[acc]['pin'] == pin:
-        print(f"\nWelcome {data[acc]['name']} ✅")
-        return acc
-    else:
-        print("Invalid account or PIN ❌")
-        return None
+    if number in data:
+        pin = int(input("Enter your pin number: "))
 
-
-def check_balance(acc):
-    print("Current Balance:", data[acc]['balance'])
-
-
-def withdraw(acc):
-    amt = int(input("Enter amount to withdraw: "))
-
-    if amt <= data[acc]['balance']:
-        data[acc]['balance'] -= amt
-        print("Withdrawal successful 💸")
-        print("Remaining balance:", data[acc]['balance'])
-    else:
-        print("Insufficient balance ❌")
-
-
-def deposit(acc):
-    amt = int(input("Enter amount to deposit: "))
-    data[acc]['balance'] += amt
-    print("Deposit successful ✅")
-    print("Updated balance:", data[acc]['balance'])
-
-
-# ---------------- MAIN PROGRAM ----------------
-
-def atm():
-    acc = login()
-    if not acc:
-        return
-
-    while True:
-        print("\n----- ATM MENU -----")
-        print("1. Check Balance")
-        print("2. Withdraw")
-        print("3. Deposit")
-        print("4. Exit")
-
-        choice = input("Enter choice: ")
-
-        if choice == '1':
-            check_balance(acc)
-        elif choice == '2':
-            withdraw(acc)
-        elif choice == '3':
-            deposit(acc)
-        elif choice == '4':
-            print("Thank you for using ATM 🙏")
-            break
+        if data[number]['Pin'] == pin:
+            print("Login successful ✅")
         else:
-            print("Invalid choice")
-
-
-# Run ATM
-atm()
+            print("Wrong PIN ❌")
+    else:
+        print("Account not found ❌")
