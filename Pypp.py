@@ -1,21 +1,41 @@
-data = [
-    {'username': 'ashik', 'password': '1234', 'mark': 272},
-    {'username': 'adhina', 'password': '2311', 'mark': 256},
-    {'username': 'reshma', 'password': '5111', 'mark': 261}
-]
+class_data = [
+    {'name': 'Hari', 'place': 'TVM', 'mark': 60},
+    {'name': 'Manu', 'place': 'Kollam', 'mark': 75},
+    {'name': 'Ram', 'place': 'TVM', 'mark': 80}
 
-# user input
-u = input("Enter username: ")
-p = input("Enter password: ")
 
-found = False
+for student in class_data:
+    print(student['name'])
 
-for user in data:
-    if user['username'] == u and user['password'] == p:
-        print("✅ Login successful")
-        print("Your mark is:", user['mark'])
-        found = True
-        break
+for student in class_data:
+    if student['mark'] < 50:
+        print(student)
 
-if not found:
-    print("❌ Invalid username or password")
+]for student in class_data:
+    if student['mark'] > 50:
+        print(student)
+
+
+for student in class_data:
+    student['mark'] += 5
+    if student['mark'] > 100:
+        student['mark'] = 100
+
+print(class_data)
+
+
+for student in class_data:
+    m = student['mark']
+    
+    if m >= 90:
+        grade = 'A+'
+    elif m >= 75:
+        grade = 'A'
+    elif m >= 60:
+        grade = 'B'
+    else:
+        grade = 'C'
+    
+    student['grade'] = grade
+
+print(class_data)
