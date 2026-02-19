@@ -39,3 +39,10 @@ for student in class_data:
     student['grade'] = grade
 
 print(class_data)
+for student in class_data:
+    student['department'] = {
+        'dep_name': 'Computer Science',
+        'hod_name': 'Dr. Nair'
+    }
+
+print(class_data)
