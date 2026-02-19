@@ -12,11 +12,42 @@ while True:
     number = input("Enter your Account Number: ")
 
     if number in data:
-        pin = int(input("Enter your pin number: "))
+        pin = int(input("Enter your PIN: "))
 
         if data[number]['Pin'] == pin:
             print("Login successful ✅")
+
+            # -------- MENU LOOP --------
+            while True:
+                print("\n1. Balance Check")
+                print("2. Withdrawal")
+                print("3. Exit")
+
+                choice = input("Enter your choice: ")
+
+                if choice == '1':
+                    print("Your balance is:", data[number]['Acc_amount'])
+
+                elif choice == '2':
+                    amt = int(input("Enter amount to withdraw: "))
+
+                    if amt <= data[number]['Acc_amount'] and amt <= atm:
+                        data[number]['Acc_amount'] -= amt
+                        atm -= amt
+                        print("Please collect your cash 💸")
+                        print("Remaining balance:", data[number]['Acc_amount'])
+                    else:
+                        print("Insufficient balance or ATM cash ❌")
+
+                elif choice == '3':
+                    print("Thank you for using ATM 🙏")
+                    break
+
+                else:
+                    print("Invalid choice ❌")
+
         else:
             print("Wrong PIN ❌")
+
     else:
         print("Account not found ❌")
