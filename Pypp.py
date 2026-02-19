@@ -1,5 +1,12 @@
 # ATM Database
 data = {
+    '000001': {'name': 'Ashik', 'pin': '2211', 'balance': 50000},
+    '000002': {'name': 'Manu',  'pin': '6611', 'balance': 15000},
+    '000003': {'name': 'Ram',   'pin': '1002', 'balance': 25000},
+    '000004': {'name': 'Hari',  'pin': '0023', 'balance': 4500},
+    '000005': {'name': 'Rahul', 'pin': '2551', 'balance': 150000}
+}
+data = {
     '000001': {'name': 'Ashik', 'pin': 2211, 'balance': 50000},
     '000002': {'name': 'Manu',  'pin': 6611, 'balance': 15000},
     '000003': {'name': 'Ram',   'pin': 1002, 'balance': 25000},
