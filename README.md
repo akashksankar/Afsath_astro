@@ -125,3 +125,41 @@ VALUES
 INSERT INTO book_issue (bid, sid, btitle)
 VALUES
 (101, 1, 'Wings of Fire');
+
+
+
+...
+
+-- Create Employee table
+CREATE TABLE Employee (
+    id INT,
+    name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT
+);
+
+-- Insert records
+INSERT INTO Employee (id, name, department, salary)
+VALUES
+(1, 'Alice', 'HR', 30000),
+(2, 'Bob', 'IT', 40000),
+(3, 'Carol', 'HR', 35000),
+(4, 'David', 'Finance', 45000);
+
+-- Create View
+CREATE VIEW HR_Employees AS
+SELECT id, name, salary
+FROM Employee
+WHERE department = 'HR';
+
+-- Display view
+SELECT * FROM HR_Employees;
+
+-- Modify the view
+CREATE OR REPLACE VIEW HR_Employees AS
+SELECT id, name, department, salary
+FROM Employee
+WHERE department = 'HR';
+
+-- Drop the view
+DROP VIEW HR_Employees;
