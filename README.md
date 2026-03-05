@@ -1,22 +1,11 @@
+AIM:
 
-data = [
-    {'username': 'ashik', 'password': '1234', 'mark': 272},
-    {'username': 'adhina', 'password': '2311', 'mark': 256},
-    {'username': 'reshma', 'password': '5111', 'mark': 261}
-]
+Develop a tiny database system and do necessary adding of data and data retrieval from that. RESULT:
 
-# user input
-u = input("Enter username: ")
-p = input("Enter password: ")
+> create table customer(Customer_ID int primary key, Name varcha r(20), Address varchar(50), Contact_Number varchar(15));
 
-found = False
+> insert into customer values(1, 'John', '123 main street', '123-456-7890'), (2, 'Jane', '456 Elm
 
-for user in data:
-    if user['username'] == u and user['password'] == p:
-        print("✅ Login successful")
-        print("Your mark is:", user['mark'])
-        found = True
-        break
+street', '987-654-3210'), (3, 'Michal', '789 Oak avenue', '555-123-4567'), (4, 'Emily', '321 Pine
 
-if not found:
-    print("❌ Invalid username or password")
+road', '222-333-444'), (5, 'Sarah', '567 Maple Lane', '777-888-9999');
