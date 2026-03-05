@@ -96,3 +96,24 @@ FROM Transactions
 INNER JOIN Product1
 ON Transactions.Product_ID = Product1.Product_ID
 WHERE Customer_ID = 1;
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(50)
+);
+
+DELIMITER //
+
+CREATE PROCEDURE add_student (
+    IN p_id INT,
+    IN p_name VARCHAR(100),
+    IN p_dept VARCHAR(50)
+)
+BEGIN
+    INSERT INTO students (id, name, department)
+    VALUES (p_id, p_name, p_dept);
+END //
+
+DELIMITER ;
+
+CALL add_student(1, 'Anu', 'CSE');
