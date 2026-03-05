@@ -56,3 +56,37 @@ INSERT INTO Stock VALUES
 
 -- Display Stock table
 SELECT * FROM Stock;
+
+-- Create Transactions table
+CREATE TABLE Transactions (
+    Transaction_ID INT PRIMARY KEY,
+    Customer_ID INT,
+    Product_ID INT,
+    Quantity INT,
+    Total_Price DECIMAL(10,2),
+    Transaction_Date DATE,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+    FOREIGN KEY (Product_ID) REFERENCES Product1(Product_ID)
+);
+
+-- Insert data into Transactions table
+INSERT INTO Transactions VALUES
+(1,1,1,2,21.98,'2023-05-24'),
+(2,2,2,3,26.97,'2023-05-25'),
+(3,3,3,1,5.99,'2023-05-26'),
+(4,4,4,5,64.95,'2023-05-27'),
+(5,5,5,2,5.98,'2023-05-28');
+
+-- Display Transactions table
+SELECT * FROM Transactions;
+
+-- Join query to find product and available quantity
+SELECT Product_Name, Available_Quantity
+FROM Stock
+INNER JOIN Product1
+ON Stock.Product_ID = Product1.Product_ID
+WHERE Product_Name = 'Rice';
+
+-- Insert another transaction
+INSERT INTO Transactions VALUES
+(6,1,1,5,250,'2023-05-24');
