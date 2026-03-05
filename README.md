@@ -117,3 +117,11 @@ END //
 DELIMITER ;
 
 CALL add_student(1, 'Anu', 'CSE');
+INSERT INTO book_det (bid, btitle, copies)
+VALUES
+(101, 'Wings of Fire', 3),
+(102, 'Harry Potter', 5);
+
+INSERT INTO book_issue (bid, sid, btitle)
+VALUES
+(101, 1, 'Wings of Fire');
