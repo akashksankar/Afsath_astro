@@ -90,3 +90,9 @@ WHERE Product_Name = 'Rice';
 -- Insert another transaction
 INSERT INTO Transactions VALUES
 (6,1,1,5,250,'2023-05-24');
+
+SELECT Transaction_ID, Product_Name, Quantity, Total_Price, Transaction_Date
+FROM Transactions
+INNER JOIN Product1
+ON Transactions.Product_ID = Product1.Product_ID
+WHERE Customer_ID = 1;
